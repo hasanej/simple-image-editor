@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Simple Image Editor - Hasan El Jabir</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="controls">
+            <label for="border">Border Color:</label>
+            <input type="color" name="border" value="#75a7ff">
+        </div>
+
+        <div class="controls">
+            <label for="padding">Padding:</label>
+            <input type="range" name="padding" min="10" max="200" value="10" data-sizing="px">
+
+            <label for="blur">Blur:</label>
+            <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+        </div>
+
+        <img src="https://source.unsplash.com/800x500">
+
+        <script>
+            (()=>{
+                'use strict';
+                const inputs = document.querySelectorAll('.controls input');
+
+                const handleUpdate = ({ target: { name, value, dataset: { sizing: suffix = '' } } }) => {
+                    document.documentElement.style.setProperty(`--${name}`, value + suffix)
+                }
+
+                const listen = (event, element, handler, cb = false, add = true) => (
+                    add ?
+                    cb ?
+                    () => element.addEventListener(event, handler) :
+                    element.addEventListener(event, handler) :
+                    cb ?
+                    () => element.removeEventListener(event, handler) :
+                    element.removeEventListener(event, handler)
+                );
+
+                inputs.forEach(inp => {
+                    listen('change', inp, handleUpdate)
+                    listen('mousedown', inp, listen('mousemove', inp, handleUpdate, true))
+                    listen('mouseup', inp, listen('mousemove', inp, handleUpdate, true, false))
+                });
+            })();
+        </script>
+    </body>
+</html>

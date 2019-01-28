@@ -1,0 +1,31 @@
+:root {
+    --border: #75a7ff;
+    --blur: 10px;
+    --padding: 10px;
+}
+img {
+    box-sizing: border-box;
+    background: var(--border);
+    filter: blur(var(--blur));
+    padding: var(--padding);
+    border-radius: 2rem;
+}
+.hl {
+    color: var(--border);
+}
+body {
+    text-align: center;
+}
+body {
+    background: #484749;
+    color: white;
+    font-family: 'roboto', sans-serif;
+    font-weight: 100;
+    font-size: 50px;
+}
+.controls {
+    margin-bottom: 50px;
+}
+input {
+    width:100px;
+}
