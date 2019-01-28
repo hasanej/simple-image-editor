@@ -6,5 +6,4 @@ This repository contains Simple Image Editor application created using Javascrip
 
 ## Pre-requisites
 1. Text Editor (I'm using VS Code)
-2. Sound asset(s) in .wav format
-3. Image for background (Optional)
+2. Image for background (Optional)
