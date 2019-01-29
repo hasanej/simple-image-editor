@@ -1,4 +1,4 @@
-# simple-image-editor
+# Simple Image Editor
 This repository contains Simple Image Editor application created using Javascript. User can edit image border, padding, and blurring option.
 
 ## Preview
